@@ -16,5 +16,10 @@ Lien documentation : https://fastapi.tiangolo.com/virtual-environments/ ou https
 
 Déactivation de l'environnement virtuel (si besoin)
 ```bash
- deactivate
+ deactivate 
+```
+
+## Démarrage application
+```bash
+ fastapi dev main.py
 ```
