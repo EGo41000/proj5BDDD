@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Tuple
 
-from pydantic import BaseModel, PositiveInt
+from pydantic import BaseModel, PositiveInt, EmailStr
 
 class Delivery(BaseModel):
     timestamp: datetime
@@ -12,6 +12,7 @@ class User(BaseModel):
     id: int
     name: str = 'John Doe'
     signup_ts: datetime
+    email : EmailStr
     #tastes: dict[str, PositiveInt]
 
 print('Schema OK')
@@ -22,6 +23,7 @@ print(repr(m))
 external_data = {
     'id': 123,
     'signup_ts': '2019-06-01 12:22',
+    'email': 'test-ssésss.ttt@gmail.com',
     'tastes': {
         'wine': 9,
         b'cheese': 7,
