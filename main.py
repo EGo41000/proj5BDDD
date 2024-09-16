@@ -7,11 +7,9 @@ from fastapi.templating import Jinja2Templates
 
 from dotenv import load_dotenv
 import os
+import schema
 
 load_dotenv()  # take environment variables from .env.
-
-#print('TEST:', os.environ['TEST'])
-#print('BDD_URL:', os.environ['BDD_URL'])
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")

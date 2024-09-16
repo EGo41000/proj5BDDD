@@ -4,7 +4,11 @@ projet pour le cours 5BDDD
 Utilisation de _FastAPI_
 
 ## Installation (linux)
-Lien documentation : https://fastapi.tiangolo.com/virtual-environments/ ou https://docs.python.org/3/library/venv.html
+Lien documentation  
+VENV : https://fastapi.tiangolo.com/virtual-environments/ et https://docs.python.org/3/library/venv.html  
+Pages statiques : https://fastapi.tiangolo.com/reference/staticfiles/  
+Redirections : https://fastapi.tiangolo.com/uk/advanced/custom-response/#redirectresponse
+Templates : https://fastapi.tiangolo.com/advanced/templates/  
 
 ```bash
  # Création environnement virtuel & activation
@@ -22,7 +26,7 @@ Déactivation de l'environnement virtuel (si besoin)
 
 ## Démarrage application
 
-Variables d'environnement à définir (exemple): 
+Variables d'environnement à définir dans un fichier .env (exemple): 
 ```text
 TEST=147852369
 BDD_URL=sqlite://:memory:
@@ -34,5 +38,6 @@ BDD_URL=sqlite://:memory:
 
 Accès au swagger sur http://127.0.0.1:8000/docs  
 Accès à la page index : http://127.0.0.1:8000/static/index.html  
-Page prncipale (renvoie vers static) : http://127.0.0.1:8000/  
+Page principale (renvoie vers static) : http://127.0.0.1:8000/  
 Page template : http://127.0.0.1:8000/items/123?q=test  
+
