@@ -7,7 +7,7 @@ from fastapi.templating import Jinja2Templates
 
 from dotenv import load_dotenv
 import os
-import schema
+import schema, crud
 
 load_dotenv()  # take environment variables from .env.
 
@@ -29,5 +29,4 @@ def read_item(request: Request, item_id: int, q: Union[str, None] = None):
 
 @app.get("/user/{user_id}", response_model=schema.User)
 def read_user(request: Request, user_id: int):
-    user = schema.User(id=user_id, name='goudot', email='EGo@gmail.com')
-    return user
+    return crud.get_user_by_id(user_id)
