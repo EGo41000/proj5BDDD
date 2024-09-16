@@ -34,3 +34,5 @@ BDD_URL=sqlite://:memory:
 
 Accès au swagger sur http://127.0.0.1:8000/docs  
 Accès à la page index : http://127.0.0.1:8000/static/index.html  
+Page prncipale (renvoie vers static) : http://127.0.0.1:8000/  
+Page template : http://127.0.0.1:8000/items/123?q=test  
