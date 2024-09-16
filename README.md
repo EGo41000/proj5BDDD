@@ -12,6 +12,7 @@ Lien documentation : https://fastapi.tiangolo.com/virtual-environments/ ou https
  source venv/bin/activate
  # Installation librairies listées dans 'requirements.txt'
  pip install -r requirements.txt
+ pip freeze
 ```
 
 Déactivation de l'environnement virtuel (si besoin)
@@ -24,4 +25,5 @@ Déactivation de l'environnement virtuel (si besoin)
  fastapi dev main.py
 ```
 
-Accès au swagger sur http://127.0.0.1:8000/docs
+Accès au swagger sur http://127.0.0.1:8000/docs  
+Accès à la page index : http://127.0.0.1:8000/static/index.html  
