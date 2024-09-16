@@ -21,6 +21,13 @@ Déactivation de l'environnement virtuel (si besoin)
 ```
 
 ## Démarrage application
+
+Variables d'environnement à définir (exemple): 
+```text
+TEST=147852369
+BDD_URL=sqlite://:memory:
+```
+
 ```bash
  fastapi dev main.py
 ```
