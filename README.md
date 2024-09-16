@@ -23,3 +23,5 @@ Déactivation de l'environnement virtuel (si besoin)
 ```bash
  fastapi dev main.py
 ```
+
+Accès au swagger sur http://127.0.0.1:8000/docs
