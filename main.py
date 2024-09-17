@@ -49,7 +49,7 @@ def read_user(request: Request, user_id: int):
     '''
     return crud.get_user_by_id(user_id)
 
-@app.post("/user/{user_id}")
+@app.post("/user/{user_id}", response_model=schema.User)
 def post_user(request: Request, user: schema.User):
     '''
     Création de User

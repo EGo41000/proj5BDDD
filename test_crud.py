@@ -42,5 +42,5 @@ def test_crud2():
         'email': 'test-ssésss...ttt@gmail.com',
     }
 
-    with pytest.raises(ValidationError) as excinfo:
+    with pytest.raises(ValidationError) as excinfo :
         user2 = schema.User(**external_data2)
