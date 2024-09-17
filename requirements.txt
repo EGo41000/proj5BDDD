@@ -2,3 +2,6 @@ fastapi[standard]
 python-dotenv
 
 pydantic[email,timezone]
+
+# Pour les tests
+pytest

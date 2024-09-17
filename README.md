@@ -41,3 +41,8 @@ Accès à la page index : http://127.0.0.1:8000/static/index.html
 Page principale (renvoie vers static) : http://127.0.0.1:8000/  
 Page template : http://127.0.0.1:8000/items/123?q=test  
 
+## Tests
+Les tests doivent passer sans erreur
+```bash
+ pytest
+```
