@@ -2,11 +2,19 @@ import crud, schema, pytest
 from pydantic import ValidationError
 
 def test_crud1():
+    '''
+    Test de fonction crud
+    :return:
+    '''
     u1 = crud.get_user_by_id(99)
     assert u1.id == 99
     assert u1.name == 'goudot-99'
 
 def test_crud2():
+    '''
+    Test 2
+    :return:
+    '''
 
     m = schema.Delivery(timestamp='2020-01-02T03:04:05Z', dimensions=['10', '5'])
     print(repr(m))
