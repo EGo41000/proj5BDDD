@@ -46,3 +46,36 @@ Les tests doivent passer sans erreur
 ```bash
  pytest
 ```
+
+# Config VM (OLD)
+ssh supinfo@4.233.202.36
+PWD : SupInfo-2024
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install docker.io
+sudo usermod -aG docker $USER
+# deconnect & reconnect
+
+# install lazydocker
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
+# récupère l'image
+docker pull container-registry.oracle.com/database/free:latest
+docker images
+
+#creation volume 'oradata'
+docker volume create oradata
+# lancemenbt instance
+docker run --name oracle -p 1521:1521 -p 5500:5500 -p 2484:2484 --ulimit nofile=1024:65536 --ulimit nproc=2047:16384 --ulimit stack=10485760:33554432 --ulimit memlock=3221225472 -e ORACLE_PWD=SUPINFO2024 -e ORACLE_EDITION=standard -e ENABLE_TCPS=true -v oradata:/opt/oracle/oradata container-registry.oracle.com/database/free:latest
+```
+
+# Utilisation de BDD Oracle suir serveur distant
+Serveur : host datalab.myconnectech.fr
+Créer une connection sécurésée SSH avec tunnel (port 1521):
+```bash
+ # pass : ********
+ssh -f -N -L 1521:localhost:1521 supinfo@datalab.myconnectech.fr
+```
+Puis utiliser DBeaver pour se connecter:
+![static/img.png](static/img.png)
