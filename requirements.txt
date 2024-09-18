@@ -3,5 +3,8 @@ python-dotenv
 
 pydantic[email,timezone]
 
+# Oracle
+oracledb
+
 # Pour les tests
 pytest

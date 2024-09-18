@@ -75,8 +75,8 @@ docker volume create oradata
 docker run --name oracle -p 1521:1521 -p 5500:5500 -p 2484:2484 --ulimit nofile=1024:65536 --ulimit nproc=2047:16384 --ulimit stack=10485760:33554432 --ulimit memlock=3221225472 -e ORACLE_PWD=SUPINFO2024 -e ORACLE_EDITION=standard -e ENABLE_TCPS=true -v oradata:/opt/oracle/oradata container-registry.oracle.com/database/free:latest
 ```
 
-# Utilisation de BDD Oracle suir serveur distant
-Serveur : host datalab.myconnectech.fr
+# Utilisation de BDD Oracle sur serveur distant (datalab)
+Serveur : host datalab.myconnectech.fr  
 Créer une connection sécurésée SSH avec tunnel (port 1521):
 ```bash
  # pass : ********
@@ -96,3 +96,20 @@ Execution conteneur :
 ```bash
  docker run -d -p 8000:8000 --name myfastapiapp myfastapiapp
 ```
+
+# Connection python - Oracle
+Utilisation librairie oracledb (à ajouter dans requirements.txt)  
+Définir dans .env :
+```text
+# connect oracledb
+DATABASE_USER=USER
+DATABASE_PASSWORD=*************
+DATABASE_DSN=localhost:1521/FREEPDB1
+
+DATABASE_TABLE=SCHEMA.TABLE_NAME
+```
+Execution de la démo :
+```bash
+ python3 conn_oracle.py 
+```
+
