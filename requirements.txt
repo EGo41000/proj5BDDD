@@ -3,6 +3,7 @@ python-dotenv
 
 pydantic[email,timezone]
 sqlalchemy
+alembic
 
 # Oracle
 oracledb

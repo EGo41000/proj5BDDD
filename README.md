@@ -120,3 +120,9 @@ Execution de la démo SQLalchemy :
  python3 demo_sqlalchemy.py 
 ```
 
+# Alembic
+```bash
+ # Création de la migration - après MaJ du modele
+ alembic revision --autogenerate -m "COMMENTAIRE"
+ alembic upgrade head # Mise à jour BDD
+```

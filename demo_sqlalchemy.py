@@ -3,20 +3,9 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 import os, random
 
+from models import Base, User
+
 load_dotenv()  # take environment variables from .env (do not overver already defined vars)
-
-# Définition de la base
-Base = declarative_base()
-
-# Définition d'une table en tant que classe Python
-class User(Base):
-    __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50))
-    surname = Column(String(50))
-
-    def __repr__(self) -> str:
-        return f"User[{self.id}] : {self.name}"
 
 # Connexion à la base de données
 SQLALCHEMY_DATABASE_URL=os.getenv('SQLALCHEMY_DATABASE_URL')
