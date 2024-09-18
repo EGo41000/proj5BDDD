@@ -107,9 +107,16 @@ DATABASE_PASSWORD=*************
 DATABASE_DSN=localhost:1521/FREEPDB1
 
 DATABASE_TABLE=SCHEMA.TABLE_NAME
+
+# POur SQLalchemy:
+SQLALCHEMY_DATABASE_URL=oracle+oracledb://USER:PASSWORD@localhost:1521/?service_name=FREEPDB1
 ```
-Execution de la démo :
+Execution de la démo oracledb :
 ```bash
  python3 conn_oracle.py 
+```
+Execution de la démo SQLalchemy :
+```bash
+ python3 demo_sqlalchemy.py 
 ```
 

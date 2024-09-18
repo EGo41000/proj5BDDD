@@ -2,6 +2,7 @@ fastapi[standard]
 python-dotenv
 
 pydantic[email,timezone]
+sqlalchemy
 
 # Oracle
 oracledb
