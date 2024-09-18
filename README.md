@@ -32,8 +32,13 @@ TEST=147852369
 BDD_URL=sqlite://:memory:
 ```
 
+Développement :
 ```bash
  fastapi dev main.py
+```
+Production : 
+```bash
+ ./entrypoint.sh
 ```
 
 Accès au swagger sur http://127.0.0.1:8000/docs  
@@ -79,3 +84,15 @@ ssh -f -N -L 1521:localhost:1521 supinfo@datalab.myconnectech.fr
 ```
 Puis utiliser DBeaver pour se connecter:
 ![static/img.png](static/img.png)
+
+
+# Docker
+Build de l'image : 
+```bash
+ docker build -t myfastapiapp .
+```
+
+Execution conteneur :
+```bash
+ docker run -d -p 8000:8000 --name myfastapiapp myfastapiapp
+```
