@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
-import os
+import os, random
 
 load_dotenv()  # take environment variables from .env (do not overver already defined vars)
 
@@ -27,6 +27,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Insertion d'un nouvel utilisateur
-new_user = User(id=1, name="John Doe")
+n=random.randint(0, 999999)
+new_user = User(id=n, name=f"John Doe-{n}")
 session.add(new_user)
 session.commit()
