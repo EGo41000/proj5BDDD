@@ -17,6 +17,15 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Traitement es templates (Janja2)
 templates = Jinja2Templates(directory="templates")
 
+@app.get("/health")
+def get_health():
+    '''
+    Traitement du GET /health pour docker
+    :return: "OK"
+    '''
+    return "OK"
+
+
 @app.get("/")
 def read_root():
     '''
