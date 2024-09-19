@@ -48,7 +48,7 @@ def read_item(request: Request, item_id: int, q: Union[str, None] = None):
         request=request, name="item.html", context={"item_id": item_id, "q": q}
     )
 
-@app.get("/user/{user_id}", response_model=schema.User)
+@app.get("/user/{user_id}", response_model=schema.UserCreated)
 def read_user(request: Request, user_id: int):
     '''
     Récupère le User
@@ -58,13 +58,12 @@ def read_user(request: Request, user_id: int):
     '''
     return crud.get_user_by_id(user_id)
 
-@app.post("/user/{user_id}", response_model=schema.User)
-def post_user(request: Request, user: schema.User):
+@app.post("/user", response_model=schema.UserCreated)
+def post_user(request: Request, user: schema.UserCreate):
     '''
     Création de User
     :param request: Request lié à l'appel GET
     :param user: Un objet de type User
     :return: le User en question
     '''
-    print('USER', user)
-    return user
+    return crud.create_user(user)

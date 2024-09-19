@@ -7,11 +7,11 @@ class Delivery(BaseModel):
     timestamp: datetime
     dimensions: Tuple[int, int]
 
-class User(BaseModel):
-    id: int
-    name: str = 'John Doe'
-    #signup_ts: datetime
+class UserCreate(BaseModel):
+    name: str
     email : EmailStr
-    #tastes: dict[str, PositiveInt]
+
+class UserCreated(UserCreate):
+    id: int
 
 

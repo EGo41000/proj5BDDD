@@ -123,6 +123,8 @@ Execution de la démo SQLalchemy :
 # Alembic
 ```bash
  # Création de la migration - après MaJ du modele
- alembic revision --autogenerate -m "COMMENTAIRE"
+ alembic revision --autogenerate -m "$(date)" #"COMMENTAIRE"
+```
+```bash
  alembic upgrade head # Mise à jour BDD
 ```
