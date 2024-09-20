@@ -1,6 +1,6 @@
 from typing import Union
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -60,11 +60,14 @@ def read_user(request: Request, user_id: int):
     return crud.get_user_by_id(user_id)
 
 @app.post("/user", response_model=schema.UserCreated)
-def post_user(request: Request, user: schema.UserCreate):
+def post_user(request: Request, user: schema.UserCreate = Form(...)):
     '''
     Création de User
     :param request: Request lié à l'appel GET
     :param user: Un objet de type User
     :return: le User en question
     '''
-    return crud.create_user(user)
+    uc=crud.create_user(user)
+    return templates.TemplateResponse(
+        request=request, name="userCreate.html", context={"user": uc}
+    )
