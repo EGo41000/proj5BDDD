@@ -31,3 +31,13 @@ def get_user_by_id(user_id: int) -> schema.UserCreated:
         user = session.query(models.User).get(user_id)
         return schema.UserCreated.model_validate(user, from_attributes=True)
 
+def get_users() -> [schema.UserCreated]:
+    '''
+    get_user_by_id : récupère un User à partir de son id
+    :param user_id: l'ID du user
+    :return: User
+    '''
+    with Session() as session:
+        users = session.query(models.User).all()
+        return [schema.UserCreated.model_validate(user, from_attributes=True) for user in users]
+

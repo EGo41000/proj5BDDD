@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
@@ -65,9 +65,20 @@ def post_user(request: Request, user: schema.UserCreate = Form(...)):
     Création de User
     :param request: Request lié à l'appel GET
     :param user: Un objet de type User
-    :return: le User en question
+    :return: page HTML
     '''
     uc=crud.create_user(user)
+    users=crud.get_users()
     return templates.TemplateResponse(
-        request=request, name="userCreate.html", context={"user": uc}
+        request=request, name="userCreate.html", context={"user": uc, "users": users}
     )
+
+@app.get("/users", response_model=List[schema.UserCreated])
+def read_users(request: Request):
+    '''
+    Récupère la liste des Users
+    :param request: Request lié à l'appel GET
+    :return: Les Users sous forme de JSON
+    '''
+    return crud.get_users()
+

@@ -13,6 +13,11 @@
     <h1>User [{{user.id}}] created, email: {{user.email}} !</h1>
     <div></div>
 
+    <h3>Users</h3>
+    {%for user in users%}
+    <li>User {{user}}</li>
+    {%endfor%}
+
     <script>
     </script>
 </body>
