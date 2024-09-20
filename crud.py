@@ -2,10 +2,6 @@ import os, models, schema, random
 from sqlalchemy import create_engine, Column, Integer, String, select
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-from dotenv import load_dotenv
-
-load_dotenv()  # take environment variables from .env (do not overver already defined vars)
-
 SQLALCHEMY_DATABASE_URL=os.getenv('SQLALCHEMY_DATABASE_URL')
 print('SQLALCHEMY_DATABASE_URL', SQLALCHEMY_DATABASE_URL)
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

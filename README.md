@@ -121,6 +121,14 @@ Execution de la démo SQLalchemy :
 ```
 
 # Alembic
+Installation comme décrit dans doc, puis dans alembic/env.py:
+```python
+import os, dotenv
+dotenv.load_dotenv()
+config.set_main_option("sqlalchemy.url", os.getenv('SQLALCHEMY_DATABASE_URL'))
+```
+
+
 ```bash
  # Création de la migration - après MaJ du modele
  alembic revision --autogenerate -m "$(date)" #"COMMENTAIRE"

@@ -6,9 +6,10 @@ from fastapi.responses import RedirectResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 from dotenv import load_dotenv
-import os, schema, crud, uvicorn
 
 load_dotenv()  # take environment variables from .env (do not overver already defined vars)
+
+import os, schema, crud, uvicorn
 
 # Instancie FastAPI
 app = FastAPI()
