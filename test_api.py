@@ -22,7 +22,11 @@ def test_get_user():
     Teste le status de le requête et le résultat attendu
     :return:
     '''
-    response = client.get("/user/100")
+    u0=schema.UserCreate(name='User creation 2', email='EGo@gmail.com')
+    uc = crud.create_user(u0)
+    assert uc.id > 0
+
+    response = client.get(f"/user/{uc.id}")
     assert response.status_code == 200
-    assert response.json() ==  {'email': 'EGo@gmail.com', 'id': 100, 'name': 'goudot-100'}
+    assert response.json() ==  {'email': 'EGo@gmail.com', 'id': uc.id, 'name': 'User creation 2'}
 

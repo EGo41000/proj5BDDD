@@ -6,9 +6,13 @@ def test_crud1():
     Test de fonction crud
     :return:
     '''
-    u1 = crud.get_user_by_id(99)
-    assert u1.id == 99
-    assert u1.name == 'goudot-99'
+    u0=schema.UserCreate(name='User creation', email='essai@free.fr')
+    uc = crud.create_user(u0)
+    assert uc.id > 0
+
+    u1 = crud.get_user_by_id(uc.id)
+    assert u1.id == uc.id
+    assert u1.name == 'User creation'
 
 def test_crud2():
     '''
@@ -23,6 +27,7 @@ def test_crud2():
     external_data = {
         'id': 123,
         'signup_ts': '2019-06-01 12:22',
+        'name': 'TBD',
         'email': 'test-ssésss.ttt@gmail.com',
         'tastes': {
             'wine': 9,
@@ -31,7 +36,7 @@ def test_crud2():
         },
     }
 
-    user = schema.User(**external_data)
+    user = schema.UserCreated(**external_data)
     print('user', user)
     print(user.model_dump())
     assert user.id == 123
@@ -43,4 +48,4 @@ def test_crud2():
     }
 
     with pytest.raises(ValidationError) as excinfo :
-        user2 = schema.User(**external_data2)
+        user2 = schema.UserCreated(**external_data2)
